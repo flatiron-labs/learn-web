@@ -33,11 +33,12 @@ module LearnWeb
     end
 
     def issue_pull_request(repo_name:, branch_name:)
-      response = @conn.post(
-        pr_endpoint,
-        { repo_name: repo_name, branch_name: branch_name },
-        { 'Authorization' => "Bearer #{token}" }
-      )
+      response = @conn.get do |req|
+        req.url pr_endpoint
+        req.headers['Authorization'] = "Bearer #{token}"
+        req.params['repo_name'] = repo_name
+        req.params['branch_name'] = branch_name
+      end
 
       puts response.body
       exit
