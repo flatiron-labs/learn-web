@@ -20,6 +20,14 @@ And then execute:
 
     $ bundle
 
+## Usage
+
+In your code:
+
+```ruby
+require 'learn_web'
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/flatiron-labs/learn-web/fork )
