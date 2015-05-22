@@ -1,7 +1,7 @@
 require 'oj'
 
 module LearnWeb
-  module Client
+  class Client
     class Me
       attr_accessor :response, :id, :first_name, :last_name, :full_name,
                     :username, :email, :github_gravatar, :github_uid, :data,
