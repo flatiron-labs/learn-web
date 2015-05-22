@@ -19,6 +19,10 @@ module LearnWeb
       "#{API_ROOT}/users/me"
     end
 
+    def pr_endpoint
+      "#{API_ROOT}/lesson_submissions"
+    end
+
     def me
       response = @conn.get do |req|
         req.url me_endpoint
@@ -29,7 +33,13 @@ module LearnWeb
     end
 
     def issue_pull_request(repo_name:, branch_name:)
-      puts "You are trying to submit #{repo_name}! This isn't implemented yet."
+      response = @conn.post(
+        pr_endpoint,
+        { repo_name: repo_name, branch_name: branch_name },
+        { 'Authorization' => "Bearer #{token}" }
+      )
+
+      puts response.body
       exit
     end
 
