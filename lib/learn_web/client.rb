@@ -28,7 +28,7 @@ module LearnWeb
       LearnWeb::Client::Me.new(response, silent_output: silent_output)
     end
 
-    def issue_pull_request(repo_name:)
+    def issue_pull_request(repo_name:, branch_name:)
       puts "You are trying to submit #{repo_name}! This isn't implemented yet."
       exit
     end
