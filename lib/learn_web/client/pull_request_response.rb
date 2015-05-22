@@ -3,7 +3,7 @@ require 'oj'
 module LearnWeb
   class Client
     class PullRequestResponse
-      attr_accessor :message
+      attr_accessor :message, :status
       attr_reader   :data
 
       def initialize(response_data)
