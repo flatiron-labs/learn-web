@@ -33,12 +33,14 @@ module LearnWeb
     end
 
     def issue_pull_request(repo_name:, branch_name:)
-      @conn.get do |req|
+      response = @conn.get do |req|
         req.url pr_endpoint
         req.headers['Authorization'] = "Bearer #{token}"
         req.params['repo_name'] = repo_name
         req.params['branch_name'] = branch_name
       end
+
+      LearnWeb::Client::PullRequestResponse.new(response)
     end
 
     def valid_token?
