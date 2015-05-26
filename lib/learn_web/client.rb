@@ -67,7 +67,7 @@ module LearnWeb
         req.params['repo_slug'] = repo_slug
       end
 
-      LearnWeb::Client::ValidateLesson.new(response)
+      LearnWeb::Client::ValidateRepoSlug.new(response)
     end
 
     def valid_token?
