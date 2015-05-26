@@ -1,6 +1,6 @@
 module LearnWeb
   class Client
-    class ValidateLesson
+    class ValidateRepoSlug
       attr_accessor :data, :repo_slug
       attr_reader   :response
 
