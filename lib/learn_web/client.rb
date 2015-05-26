@@ -28,7 +28,7 @@ module LearnWeb
     end
 
     def validate_repo_slug_endpoint
-      "#{API_ROOT}/users/validate_repo_slug"
+      "#{API_ROOT}/repo_slug_validations"
     end
 
     def me
