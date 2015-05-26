@@ -23,7 +23,7 @@ module LearnWeb
       "#{API_ROOT}/lesson_submissions"
     end
 
-    def current_lesson_edpoint
+    def current_lesson_endpoint
       "#{API_ROOT}/users/current_lesson"
     end
 
