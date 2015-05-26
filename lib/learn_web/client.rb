@@ -23,6 +23,10 @@ module LearnWeb
       "#{API_ROOT}/lesson_submissions"
     end
 
+    def current_lesson_edpoint
+      "#{API_ROOT}/users/current_lesson"
+    end
+
     def me
       response = @conn.get do |req|
         req.url me_endpoint
@@ -41,6 +45,15 @@ module LearnWeb
       end
 
       LearnWeb::Client::PullRequestResponse.new(response)
+    end
+
+    def current_lesson
+      response = @conn.get do |req|
+        req.url current_lesson_endpoint
+        req.headers['Authorization'] = "Bearer #{token}"
+      end
+
+      LearnWeb::Client::CurrentLesson.new(response)
     end
 
     def valid_token?
