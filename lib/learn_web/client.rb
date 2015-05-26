@@ -27,6 +27,10 @@ module LearnWeb
       "#{API_ROOT}/users/current_lesson"
     end
 
+    def validate_repo_slug_endpoint
+      "#{API_ROOT}/users/validate_repo_slug"
+    end
+
     def me
       response = @conn.get do |req|
         req.url me_endpoint
@@ -54,6 +58,16 @@ module LearnWeb
       end
 
       LearnWeb::Client::CurrentLesson.new(response)
+    end
+
+    def validate_repo_slug(repo_slug:)
+      response = @conn.post do |req|
+        req.url validate_repo_slug_endpoint
+        req.headers['Authorization'] = "Bearer #{token}"
+        req.params['repo_slug'] = repo_slug
+      end
+
+      LearnWeb::Client::ValidateLesson.new(response)
     end
 
     def valid_token?
