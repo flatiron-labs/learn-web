@@ -6,7 +6,7 @@ module LearnWeb
                       :username, :email, :github_gravatar, :github_uid, :data,
                       :silent_output
 
-        include LearnWeb::AttributePopulatable
+        #include LearnWeb::AttributePopulatable
 
         def initialize(response, silent_output: false)
           @response      = response
