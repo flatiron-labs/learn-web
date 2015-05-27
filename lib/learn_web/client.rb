@@ -31,6 +31,10 @@ module LearnWeb
       "#{API_ROOT}/repo_slug_validations"
     end
 
+    def fork_endpoint
+      "#{API_ROOT}/fork_requests"
+    end
+
     def me
       response = @conn.get do |req|
         req.url me_endpoint
@@ -68,6 +72,16 @@ module LearnWeb
       end
 
       LearnWeb::Client::ValidateRepoSlug.new(response)
+    end
+
+    def fork_repo(repo_name:)
+      reponse = @conn.post do |req|
+        req.url fork_endpoint
+        req.headers['Authorization'] = "Bearer #{token}"
+        req.params['repo_name'] = repo_name
+      end
+
+      LearnWeb::Client::ForkRequest.new(response)
     end
 
     def valid_token?
