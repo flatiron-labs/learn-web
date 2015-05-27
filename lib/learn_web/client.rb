@@ -75,7 +75,7 @@ module LearnWeb
     end
 
     def fork_repo(repo_name:)
-      reponse = @conn.post do |req|
+      response = @conn.post do |req|
         req.url fork_endpoint
         req.headers['Authorization'] = "Bearer #{token}"
         req.params['repo_name'] = repo_name
