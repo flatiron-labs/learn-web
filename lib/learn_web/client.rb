@@ -1,3 +1,9 @@
+require 'learn_web/client/user'
+require 'learn_web/client/pull_request'
+require 'learn_web/client/lesson'
+require 'learn_web/client/validate_repo'
+require 'learn_web/client/fork'
+
 module LearnWeb
   class Client
     attr_reader :token, :conn, :silent_output

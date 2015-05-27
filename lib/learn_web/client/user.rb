@@ -1,3 +1,5 @@
+require 'learn_web/client/user/me'
+
 module LearnWeb
   class Client
     module User

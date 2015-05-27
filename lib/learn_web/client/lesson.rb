@@ -1,3 +1,5 @@
+require 'learn_web/client/lesson/current_lesson'
+
 module LearnWeb
   class Client
     module Lesson

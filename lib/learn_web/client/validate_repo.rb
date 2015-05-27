@@ -1,3 +1,5 @@
+require 'learn_web/client/validate_repo/slug'
+
 module LearnWeb
   class Client
     module ValidateRepo

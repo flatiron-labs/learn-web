@@ -1,3 +1,5 @@
+require 'learn_web/client/fork/request'
+
 module LearnWeb
   class Client
     module Fork

@@ -1,3 +1,5 @@
+require 'learn_web/client/pull_request/response'
+
 module LearnWeb
   class Client
     module PullRequest
