@@ -5,6 +5,7 @@ require 'learn_web/client/me'
 require 'learn_web/client/pull_request_response'
 require 'learn_web/client/current_lesson'
 require 'learn_web/client/validate_repo_slug'
+require 'learn_web/client/fork_request'
 
 module LearnWeb
 end
