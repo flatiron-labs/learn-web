@@ -1,47 +1,49 @@
 module LearnWeb
   class Client
-    class ValidateRepoSlug
-      attr_accessor :data, :repo_slug
-      attr_reader   :response
+    module ValidateRepo
+      class Slug
+        attr_accessor :data, :repo_slug
+        attr_reader   :response
 
-      include AttributePopulatable
+        include AttributePopulatable
 
-      def initialize(response)
-        @response = response
+        def initialize(response)
+          @response = response
 
-        parse!
-      end
+          parse!
+        end
 
-      private
+        private
 
-      def parse!
-        case response.status
-        when 200
-          self.data = Oj.load(response.body, symbol_keys: true)
-          populate_attributes!
-        when 401
-          puts "It seems your OAuth token is incorrect. Please re-run config with: learn reset"
-          exit
-        when 422
-          begin
+        def parse!
+          case response.status
+          when 200
             self.data = Oj.load(response.body, symbol_keys: true)
-            if data[:message].match(/Cannot find lesson/)
-              puts "Hmm...#{data[:message]}. Please check your input and try again."
-              exit
-            else
+            populate_attributes!
+          when 401
+            puts "It seems your OAuth token is incorrect. Please re-run config with: learn reset"
+            exit
+          when 422
+            begin
+              self.data = Oj.load(response.body, symbol_keys: true)
+              if data[:message].match(/Cannot find lesson/)
+                puts "Hmm...#{data[:message]}. Please check your input and try again."
+                exit
+              else
+                puts "Sorry, something went wrong. Please try again."
+                exit
+              end
+            rescue
               puts "Sorry, something went wrong. Please try again."
               exit
             end
-          rescue
+          when 500
+            puts "Sorry, something went wrong. Please try again."
+            exit
+          else
             puts "Sorry, something went wrong. Please try again."
             exit
           end
-        when 500
-          puts "Sorry, something went wrong. Please try again."
-          exit
-        else
-          puts "Sorry, something went wrong. Please try again."
-          exit
         end
       end
     end
