@@ -1,5 +1,6 @@
 require 'faraday'
 require 'oj'
+require 'fileutils'
 
 require 'learn_web/version'
 require 'learn_web/attribute_populatable'

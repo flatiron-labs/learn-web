@@ -25,6 +25,7 @@ module LearnWeb
         response = @conn.get do |req|
           req.url next_lesson_endpoint
           req.headers['Authorization'] = "Bearer #{token}"
+          req.params['dir_name'] = File.basename(FileUtils.pwd)
         end
 
         LearnWeb::Client::Lesson::NextLesson.new(response)
