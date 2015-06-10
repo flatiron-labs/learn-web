@@ -3,6 +3,7 @@ require 'learn_web/client/pull_request'
 require 'learn_web/client/lesson'
 require 'learn_web/client/validate_repo'
 require 'learn_web/client/fork'
+require 'learn_web/client/environment'
 
 module LearnWeb
   class Client
@@ -16,6 +17,7 @@ module LearnWeb
     include LearnWeb::Client::ValidateRepo
     include LearnWeb::Client::Fork
     include LearnWeb::Client::User
+    include LearnWeb::Client::Environment
 
     def initialize(token:, silent_output: false)
       @token = token
