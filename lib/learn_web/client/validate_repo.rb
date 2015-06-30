@@ -8,11 +8,11 @@ module LearnWeb
       end
 
       def validate_repo_slug(repo_slug:)
-        response = @conn.post do |req|
-          req.url validate_repo_slug_endpoint
-          req.headers['Authorization'] = "Bearer #{token}"
-          req.params['repo_slug'] = repo_slug
-        end
+        response = post(
+          validate_repo_slug_endpoint,
+          headers: { 'Authorization' => "Bearer #{token}" },
+          params: { 'repo_slug' => repo_slug }
+        )
 
         LearnWeb::Client::ValidateRepo::Slug.new(response)
       end

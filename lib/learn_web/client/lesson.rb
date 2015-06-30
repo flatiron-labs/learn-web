@@ -13,20 +13,20 @@ module LearnWeb
       end
 
       def current_lesson
-        response = @conn.get do |req|
-          req.url current_lesson_endpoint
-          req.headers['Authorization'] = "Bearer #{token}"
-        end
+        response = get(
+          current_lesson_endpoint,
+          headers: { 'Authorization' => "Bearer #{token}" }
+        )
 
         LearnWeb::Client::Lesson::CurrentLesson.new(response)
       end
 
       def next_lesson
-        response = @conn.get do |req|
-          req.url next_lesson_endpoint
-          req.headers['Authorization'] = "Bearer #{token}"
-          req.params['dir_name'] = File.basename(FileUtils.pwd)
-        end
+        response = get(
+          next_lesson_endpoint,
+          headers: { 'Authorization' => "Bearer #{token}" },
+          params: { 'dir_name' => File.basename(FileUtils.pwd) }
+        )
 
         LearnWeb::Client::Lesson::NextLesson.new(response)
       end

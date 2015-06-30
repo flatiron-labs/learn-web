@@ -8,11 +8,11 @@ module LearnWeb
       end
 
       def fork_repo(repo_name:)
-        response = @conn.post do |req|
-          req.url fork_endpoint
-          req.headers['Authorization'] = "Bearer #{token}"
-          req.params['repo_name'] = repo_name
-        end
+        response = post(
+          fork_endpoint,
+          headers: { 'Authorization' => "Bearer #{token}" },
+          params: { 'repo_name' => repo_name }
+        )
 
         LearnWeb::Client::Fork::Request.new(response)
       end

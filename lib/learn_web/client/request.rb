@@ -31,7 +31,7 @@ module LearnWeb
       def build_params(request, params)
         if params
           params.each do |param, value|
-            request[param] = value
+            request.params[param] = value
           end
         end
       end

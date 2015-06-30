@@ -8,9 +8,7 @@ module LearnWeb
       end
 
       def environment_setup_list
-        response = @conn.get do |req|
-          req.url environment_setup_list_endpoint
-        end
+        response = get(environment_setup_list_endpoint)
 
         LearnWeb::Client::Environment::SetupList.new(response)
       end
