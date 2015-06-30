@@ -1,3 +1,5 @@
+require 'learn_web/client/request'
+require 'learn_web/client/connection'
 require 'learn_web/client/user'
 require 'learn_web/client/pull_request'
 require 'learn_web/client/lesson'
@@ -12,6 +14,8 @@ module LearnWeb
     LEARN_URL = 'https://learn.co'
     API_ROOT  = '/api/v1'
 
+    include LearnWeb::Client::Request
+    include LearnWeb::Client::Connection
     include LearnWeb::Client::PullRequest
     include LearnWeb::Client::Lesson
     include LearnWeb::Client::ValidateRepo

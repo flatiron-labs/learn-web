@@ -8,10 +8,10 @@ module LearnWeb
       end
 
       def me
-        response = @conn.get do |req|
-          req.url me_endpoint
-          req.headers['Authorization'] = "Bearer #{token}"
-        end
+        response = get(
+          me_endpoint,
+          headers: { 'Authorization' => "Bearer #{token}" }
+        )
 
         LearnWeb::Client::User::Me.new(response, silent_output: silent_output)
       end
