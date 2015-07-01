@@ -24,13 +24,13 @@ module LearnWeb
             case response.status
             when 401
               puts "It seems your OAuth token is incorrect. Please re-run config with: learn reset"
-              exit
+              exit 1
             when 500
               puts "Something went wrong. Please try again."
-              exit
+              exit 1
             else
               puts "Something went wrong. Please try again."
-              exit
+              exit 1
             end
           end
 
