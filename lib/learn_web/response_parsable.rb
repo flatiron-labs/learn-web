@@ -1,5 +1,5 @@
 module LearnWeb
-  module AttributePopulatable
+  module ResponseParsable
     def self.included(base)
       base.class_eval do
         def parse!
