@@ -1,5 +1,6 @@
 require 'learn_web/client/lesson/current_lesson'
 require 'learn_web/client/lesson/next_lesson'
+require 'learn_web/client/lesson/status'
 
 module LearnWeb
   class Client
@@ -10,6 +11,10 @@ module LearnWeb
 
       def next_lesson_endpoint
         "#{API_ROOT}/users/next_lesson"
+      end
+
+      def current_status_endpoint
+        "#{API_ROOT}/users/current_lesson/status"
       end
 
       def current_lesson
@@ -29,6 +34,15 @@ module LearnWeb
         )
 
         LearnWeb::Client::Lesson::NextLesson.new(response)
+      end
+
+      def current_status
+        response = get(
+          current_status_endpoint,
+          headers: { 'Authorization' => "Bearer #{token}" }
+        )
+
+        LearnWeb::Client::Lesson::CurrentStatus.new(response)
       end
     end
   end
