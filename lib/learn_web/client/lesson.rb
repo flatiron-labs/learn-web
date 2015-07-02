@@ -1,6 +1,6 @@
 require 'learn_web/client/lesson/current_lesson'
+require 'learn_web/client/lesson/current_status'
 require 'learn_web/client/lesson/next_lesson'
-require 'learn_web/client/lesson/status'
 
 module LearnWeb
   class Client
