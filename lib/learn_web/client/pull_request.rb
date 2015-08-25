@@ -7,11 +7,11 @@ module LearnWeb
         "#{API_ROOT}/lesson_submissions"
       end
 
-      def issue_pull_request(repo_name:, branch_name:)
+      def issue_pull_request(repo_name:, branch_name:, message: nil)
         response = post(
           pr_endpoint,
           headers: { 'Authorization' => "Bearer #{token}" },
-          params: { 'repo_name' => repo_name, 'branch_name' => branch_name }
+          params: { 'repo_name' => repo_name, 'branch_name' => branch_name, 'message' => message }
         )
 
         LearnWeb::Client::PullRequest::Response.new(response)
