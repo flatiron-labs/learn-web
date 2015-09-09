@@ -24,7 +24,7 @@ module LearnWeb
           headers: { 'Authorization' => "Bearer #{token}" }
         )
 
-        LearnWeb::Client::Environment::Verification.new(reponse)
+        LearnWeb::Client::Environment::Verification.new(response)
       end
     end
   end
