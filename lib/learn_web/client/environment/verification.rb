@@ -11,6 +11,10 @@ module LearnWeb
           parse!
         end
 
+        def success?
+          status == 200
+        end
+
         private
 
         def parse!
