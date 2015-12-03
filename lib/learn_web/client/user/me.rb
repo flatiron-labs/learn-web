@@ -2,11 +2,7 @@ module LearnWeb
   class Client
     module User
       class Me
-        attr_accessor :response, :id, :first_name, :last_name, :full_name,
-                      :username, :email, :github_gravatar, :github_uid, :data,
-                      :silent_output
-
-        include LearnWeb::AttributePopulatable
+        attr_accessor :response, :silent_output, :data_object
 
         def initialize(response, silent_output: false)
           @response      = response
@@ -16,25 +12,13 @@ module LearnWeb
         end
 
         def parse!
-          if response.status == 200
-            self.data = Oj.load(response.body, symbol_keys: true)
-
-            populate_attributes!
-          elsif silent_output == false
-            case response.status
-            when 401
-              puts "It seems your OAuth token is incorrect. Please re-run config with: learn reset"
-              exit 1
-            when 500
-              puts "Something went wrong. Please try again."
-              exit 1
-            else
-              puts "Something went wrong. Please try again."
-              exit 1
-            end
-          end
+          self.data_object = LearnWeb::Client::User::User.new(response, silent_output: silent_output)
 
           self
+        end
+
+        def method_missing(name, *args, &block)
+          self.data_object.send(name, *args, &block)
         end
       end
     end

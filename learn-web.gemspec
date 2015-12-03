@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Flatiron School"]
   spec.email         = ["learn@flatironschool.com"]
   spec.summary       = %q{An interface to Learn.co}
-  spec.homepage      = "https://learn.co"
+  spec.homepage      = "https://github.com/learn-co/learn-web"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
