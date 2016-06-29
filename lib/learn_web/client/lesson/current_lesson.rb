@@ -4,7 +4,7 @@ module LearnWeb
       class CurrentLesson
         attr_reader   :response
         attr_accessor :data, :id, :title, :link, :github_repo, :forked_repo,
-                      :assessments, :lab
+                      :clone_repo, :assessments, :lab
 
         include LearnWeb::AttributePopulatable
         include LearnWeb::ResponseParsable
