@@ -24,7 +24,7 @@ module LearnWeb
           client: client
         )
 
-        LearnWeb::Client::Fork::Request.new(response)
+        LearnWeb::Client::Event::Submission.new(response)
       end
     end
   end
