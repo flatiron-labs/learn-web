@@ -6,7 +6,8 @@ module LearnWeb
 
       def request(method, url, options = {})
         begin
-          @conn.send(method) do |req|
+          connection = options[:client] || @conn
+          connection.send(method) do |req|
             req.url url
             build_request(req, options)
           end
