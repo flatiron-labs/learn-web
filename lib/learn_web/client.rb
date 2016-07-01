@@ -6,6 +6,7 @@ require 'learn_web/client/lesson'
 require 'learn_web/client/validate_repo'
 require 'learn_web/client/fork'
 require 'learn_web/client/environment'
+require 'learn_web/client/event'
 
 module LearnWeb
   class Client
