@@ -20,8 +20,8 @@ module LearnWeb
 
       def submit_event(params)
         response = post(
-          submit_event,
-          params: params,
+          submission_endpoint,
+          body: params,
           client: client
         )
 

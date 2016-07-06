@@ -11,7 +11,7 @@ module LearnWeb
         response = post(
           fork_endpoint,
           headers: { 'Authorization' => "Bearer #{token}" },
-          params: { 'repo_name' => repo_name }
+          params:  { 'repo_name' => repo_name }
         )
 
         LearnWeb::Client::Fork::Request.new(response)

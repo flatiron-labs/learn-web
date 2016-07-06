@@ -19,6 +19,7 @@ module LearnWeb
       def build_request(request, options)
         build_headers(request, options[:headers])
         build_params(request, options[:params])
+        build_body(request, options[:body])
       end
 
       def build_headers(request, headers)
@@ -34,6 +35,12 @@ module LearnWeb
           params.each do |param, value|
             request.params[param] = value
           end
+        end
+      end
+
+      def build_body(request, body)
+        if body
+          request.body = Oj.dump(body, mode: :compat)
         end
       end
     end

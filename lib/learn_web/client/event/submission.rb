@@ -2,7 +2,8 @@ module LearnWeb
   class Client
     module Event
       class Submission
-        attr_reader :response
+        attr_reader   :response
+        attr_accessor :data
 
         include LearnWeb::AttributePopulatable
         include LearnWeb::ResponseParsable

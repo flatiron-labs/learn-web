@@ -25,6 +25,7 @@ module LearnWeb
     include LearnWeb::Client::Fork
     include LearnWeb::Client::User
     include LearnWeb::Client::Environment
+    include LearnWeb::Client::Event
 
     def initialize(token:, silent_output: false)
       @token = token
