@@ -12,9 +12,7 @@ module LearnWeb
   class Client
     attr_reader :token, :conn, :silent_output
 
-    #LEARN_URL = 'https://learn.co'
-    #API_ROOT  = '/api/v1'
-    LEARN_URL = 'http://localhost:3000'
+    LEARN_URL = 'https://learn.co'
     API_ROOT  = '/api/v1'
 
     include LearnWeb::Client::Request
