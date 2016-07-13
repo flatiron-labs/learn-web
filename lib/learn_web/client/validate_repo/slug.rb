@@ -2,7 +2,8 @@ module LearnWeb
   class Client
     module ValidateRepo
       class Slug
-        attr_accessor :data, :repo_slug, :lab, :lesson_id, :later_lesson, :repo_name
+        attr_accessor :data, :repo_slug, :lab, :lesson_id, :later_lesson,
+                      :repo_name, :dot_learn
         attr_reader   :response
 
         include AttributePopulatable
