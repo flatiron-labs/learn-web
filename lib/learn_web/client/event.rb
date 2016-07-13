@@ -5,8 +5,7 @@ module LearnWeb
     module Event
       attr_reader :client
 
-      #IRONBROKER_URL = 'http://ironbroker-v2.flatironschool.com'
-      IRONBROKER_URL = 'http://localhost:9292'
+      IRONBROKER_URL = 'http://ironbroker-v2.flatironschool.com'
 
       def client
         @client ||= Faraday.new(url: IRONBROKER_URL) do |faraday|
