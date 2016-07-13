@@ -1,10 +1,9 @@
 module LearnWeb
   class Client
-    module Lesson
-      class CurrentLesson
+    module Event
+      class Submission
         attr_reader   :response
-        attr_accessor :data, :id, :title, :link, :github_repo, :forked_repo,
-                      :clone_repo, :assessments, :lab, :dot_learn
+        attr_accessor :data
 
         include LearnWeb::AttributePopulatable
         include LearnWeb::ResponseParsable

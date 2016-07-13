@@ -4,7 +4,7 @@ module LearnWeb
       class NextLesson
         attr_reader   :response
         attr_accessor :data, :id, :title, :link, :github_repo, :forked_repo,
-                      :assessments, :lab
+                      :clone_repo, :assessments, :lab, :dot_learn
 
         include LearnWeb::AttributePopulatable
         include LearnWeb::ResponseParsable
