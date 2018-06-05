@@ -12,3 +12,6 @@
 *.o
 *.a
 mkmf.log
+
+# built copies of the gem
+*.gem
