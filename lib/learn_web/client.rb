@@ -12,7 +12,7 @@ module LearnWeb
   class Client
     attr_reader :token, :conn, :silent_output
 
-    LEARN_URL = 'https://learn.co'
+    LEARN_URL = ENV.fetch('LEARN_CO_URL', 'https://learn.co').freeze
     API_ROOT  = '/api/v1'
 
     include LearnWeb::Client::Request
