@@ -1,5 +1,4 @@
 require 'learn_web/client/ssh_keys/add'
-puts 'loaded'
 
 module LearnWeb
   class Client
