@@ -7,6 +7,7 @@ require 'learn_web/client/validate_repo'
 require 'learn_web/client/fork'
 require 'learn_web/client/environment'
 require 'learn_web/client/event'
+require 'learn_web/client/ssh_keys'
 
 module LearnWeb
   class Client
@@ -24,6 +25,7 @@ module LearnWeb
     include LearnWeb::Client::User
     include LearnWeb::Client::Environment
     include LearnWeb::Client::Event
+    include LearnWeb::Client::SshKeys
 
     def initialize(token:, silent_output: false)
       @token = token
