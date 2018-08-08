@@ -2,14 +2,13 @@ module LearnWeb
   class Client
     module SshKeys
       class Add
-        attr_reader :response, :silent_output
+        attr_reader :response
         attr_accessor :data
 
         include LearnWeb::AttributePopulatable
 
         def initialize(response)
           @response = response
-          @silent_output = silent_output
         end
 
         def parse!
