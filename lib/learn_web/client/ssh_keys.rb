@@ -7,11 +7,12 @@ module LearnWeb
         "#{API_ROOT}/ssh_keys"
       end
 
-      def add_ssh_key(key:, key_title: nil)
+      def add_ssh_key(key:, key_title: nil, client: nil)
         response = post(
           add_ssh_key_endpoint,
           headers: { 'Authorization' => "Bearer #{token}" },
-          params: { 'key' => key, key_title: key_title }.compact
+          params: { 'key' => key, key_title: key_title }.compact,
+          client: client
         )
 
         LearnWeb::Client::SshKeys::Add.new(response).parse!

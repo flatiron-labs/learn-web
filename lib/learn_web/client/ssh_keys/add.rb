@@ -2,12 +2,14 @@ module LearnWeb
   class Client
     module SshKeys
       class Add
-        attr_reader :response
+        attr_reader :response, :silent_output
+        attr_accessor :data
 
         include LearnWeb::AttributePopulatable
 
         def initialize(response)
           @response = response
+          @silent_output = silent_output
         end
 
         def parse!
@@ -16,10 +18,10 @@ module LearnWeb
 
             populate_attributes!
             self
-          elsif silent_output == false
+          else
             case response.status
             when 304
-              puts "This key is already in use"
+              puts "This key is already in use."
             when 422
               puts "Something went wrong. Please try again."
             else
