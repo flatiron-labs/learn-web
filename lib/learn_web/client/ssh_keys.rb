@@ -11,7 +11,7 @@ module LearnWeb
         response = post(
           add_ssh_key_endpoint,
           headers: { 'Authorization' => "Bearer #{token}" },
-          params: { 'key' => key, key_title: key_title }.compact,
+          params: { 'key' => key, key_title: key_title }.reject { |_, v| v.nil? },
           client: client
         )
 
