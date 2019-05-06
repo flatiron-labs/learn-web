@@ -21,7 +21,8 @@ module LearnWeb
         response = post(
           submission_endpoint,
           body: params,
-          client: client
+          client: client,
+          headers: { 'Content-Type' => 'application/json' }
         )
 
         LearnWeb::Client::Event::Submission.new(response)
