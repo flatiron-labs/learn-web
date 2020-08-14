@@ -24,5 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard-rspec", "~> 4.7.0"
 
   spec.add_runtime_dependency "faraday", "~> 0.9"
-  spec.add_runtime_dependency "oj", "~> 2.9"
+  spec.add_runtime_dependency "oj", "~> 3.10"
 end
